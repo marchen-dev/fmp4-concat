@@ -1,0 +1,75 @@
+{
+  "name": "fmp4-concat",
+  "version": "0.0.1",
+  "private": false,
+  "description": "A browser library for concatenating multiple FMP4 streams with timeline adjustment",
+  "author": "Suemor",
+  "license": "MIT",
+  "keywords": [
+    "fmp4",
+    "mp4",
+    "concat",
+    "stream",
+    "timeline",
+    "tfdt",
+    "hls",
+    "browser",
+    "web"
+  ],
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "browser": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "browser": "./dist/index.mjs",
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./*"
+      ]
+    }
+  },
+  "files": [
+    "dist",
+    "readme.md",
+    "LICENSE",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "rollup -c rollup.config.ts --configPlugin swc3 --bundleConfigAsCjs",
+    "dev": "rollup -c rollup.config.ts --configPlugin swc3 --bundleConfigAsCjs --watch",
+    "type-check": "tsc --noEmit",
+    "push": "npm run build && npm publish"
+  },
+  "devDependencies": {
+    "@suemor/prettier-config": "0.0.3",
+    "@types/node": "^24.3.0",
+    "prettier": "^3.6.2",
+    "rollup": "^4.40.0",
+    "rollup-plugin-dts": "^6.2.1",
+    "rollup-plugin-swc3": "^0.12.1",
+    "rollup-preserve-directives": "^1.1.3",
+    "typescript": "^5.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
