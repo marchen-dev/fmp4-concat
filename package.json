@@ -1,6 +1,6 @@
 {
   "name": "fmp4-concat",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "A browser library for concatenating multiple FMP4 streams with timeline adjustment",
   "author": "Suemor",
